@@ -62,6 +62,24 @@ def listrar_restaurantes():
 
     voltar_ao_menu_principal()
 
+def alternar_estado_restaurante():
+    exibir_subtitulo('Alterando estado do restaurante')
+
+    nome_restaurante = input('Digite o nome do restaurante que deseja alterar o estado: ')
+
+    resraurante_encontrado = False
+
+    for resraurante in resraurantes:
+        if nome_restaurante == resraurante['nome']:
+            resraurante_encontrado = True
+            resraurante['ativo'] = not resraurante['ativo']
+            mensagem = f'O restaurante {nome_restaurante} foi ativado com sucesso' if resraurante['ativo'] else f'O restaurante {nome_restaurante} foi desativado com sicesso '
+            print(mensagem)
+    if not resraurante_encontrado:
+        print('O restaurante não foi encontrado')
+
+    voltar_ao_menu_principal()
+
 
 def escolher_opcao():
     try:
@@ -71,7 +89,7 @@ def escolher_opcao():
         elif opcao_esconhida == 2:
             listrar_restaurantes()
         elif opcao_esconhida == 3:
-            print('ativar resraurante')
+            alternar_estado_restaurante()
         elif opcao_esconhida == 4:
             finalizar_app()
         else:
