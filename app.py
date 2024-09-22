@@ -94,7 +94,7 @@ def alternar_estado_restaurante():
 
 def escolher_opcao():
     try:
-        opcao_esconhida = int(input('esconha uma opção: '))
+        opcao_esconhida = int(input('escolha uma opção: '))
         if opcao_esconhida == 1:
          cadastrar_novo_restaurante()
         elif opcao_esconhida == 2:
